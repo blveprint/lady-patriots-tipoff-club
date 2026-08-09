@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Give — Lady Patriots Tip-Off Club</title>
+<meta name="description" content="Make a tax-deductible gift to the Lady Patriots Tip-Off Club, the registered 501(c)(3) nonprofit behind Berkmar High School Girls Basketball."/>
+<link rel="icon" type="image/png" href="assets/logo-lady-patriots.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  /* ── Giving page: financial-infrastructure system, recolored to brand.
+       Navy plays the deep-ink role, crimson the primary CTA, gold the
+       gradient warmth. Thin display weights, negative tracking, pill
+       buttons, tabular figures on money. ── */
+  :root {
+    --ink: #141C41;             /* brand navy as deep ink */
+    --ink-secondary: #2A3558;
+    --ink-mute: #64708D;
+    --crimson: #8B1A14;         /* primary CTA */
+    --crimson-press: #6E140F;
+    --gold: #C4A44E;
+    --canvas: #FFFFFF;
+    --canvas-soft: #F6F8FC;
+    --cream: #F5EDDA;
+    --hairline: #E3E7EE;
+    --hairline-input: #B9C4D8;
+    --shadow-1: 0 1px 3px rgba(20,28,65,0.08);
+    --shadow-2: 0 8px 24px rgba(20,28,65,0.08), 0 2px 6px rgba(20,28,65,0.04);
+    --font: 'Hanken Grotesk', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--canvas); color: var(--ink);
+    font-family: var(--font); font-weight: 300; font-size: 15px;
+    font-feature-settings: "ss01";
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  ::selection { background: rgba(196,164,78,0.3); }
+  a { color: var(--crimson); text-decoration: none; }
+  a:hover { color: var(--crimson-press); }
+  .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "ss01", "tnum"; }
+
+  /* ── Gradient mesh (upper third) ── */
+  .mesh { position: absolute; top: 0; left: 0; right: 0; height: 440px; z-index: 0; overflow: hidden; pointer-events: none; }
+  .mesh::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, var(--canvas) 96%); }
+  .mesh .blob { position: absolute; border-radius: 50%; filter: blur(72px); }
+  .mesh .b1 { width: 660px; height: 330px; left: -10%; top: -20%; background: #2F3F72; opacity: 0.32; }
+  .mesh .b2 { width: 600px; height: 320px; left: 28%; top: -28%; background: var(--gold); opacity: 0.42; }
+  .mesh .b3 { width: 540px; height: 290px; right: -8%; top: -16%; background: #C43030; opacity: 0.26; }
+  .mesh .b4 { width: 500px; height: 260px; left: 54%; top: 6%; background: var(--cream); opacity: 0.9; }
+
+  .container { max-width: 1120px; margin: 0 auto; width: 100%; padding: 0 24px; position: relative; z-index: 5; }
+
+  /* ── Nav ── */
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-brand img { height: 42px; width: auto; }
+  .nav-brand .t { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.2; white-space: nowrap; }
+  .nav-brand .s { font-size: 12px; font-weight: 400; color: var(--ink-mute); }
+  .nav-back { font-size: 14px; font-weight: 400; color: var(--ink-secondary); white-space: nowrap; }
+  .nav-back::before { content: '← '; }
+  .nav-back:hover { color: var(--ink); }
+
+  /* ── Header ── */
+  .head { padding: 40px 0 34px; }
+  .eyebrow {
+    font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--crimson); margin-bottom: 14px;
+  }
+  .head h1 {
+    font-size: clamp(38px, 5vw, 56px); font-weight: 300; line-height: 1.03; letter-spacing: -1.4px;
+    color: var(--ink); max-width: 640px;
+  }
+  .head p { margin-top: 16px; max-width: 540px; font-size: 16px; font-weight: 300; color: var(--ink-secondary); line-height: 1.5; }
+
+  /* ── Buttons: tight pills ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 15px; font-weight: 400; line-height: 1;
+    padding: 10px 18px; border-radius: 9999px; border: none; cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .btn-primary { background: var(--crimson); color: #fff; }
+  .btn-primary:hover { background: var(--crimson-press); }
+  .btn-primary::after { content: '→'; font-weight: 300; }
+
+  /* ── Checkout ── */
+  .checkout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; padding-bottom: 64px; align-items: start; }
+  .card { background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px; }
+
+  .form-card { padding: 32px; box-shadow: var(--shadow-1); }
+  .f-label { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-mute); margin: 24px 0 10px; }
+  .f-label:first-child { margin-top: 0; }
+
+  .freq { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .freq button {
+    font-family: var(--font); font-size: 14px; font-weight: 400; color: var(--ink-secondary);
+    background: var(--canvas-soft); border: 1px solid var(--hairline); border-radius: 9999px;
+    padding: 10px; cursor: pointer; transition: all 0.15s ease;
+  }
+  .freq button:hover { border-color: var(--hairline-input); }
+  .freq button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+  .amounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .amt {
+    font-family: var(--font); font-size: 15px; font-weight: 400; color: var(--ink);
+    background: var(--canvas); border: 1px solid var(--hairline-input); border-radius: 6px;
+    padding: 11px 8px; cursor: pointer; text-align: center; transition: all 0.15s ease;
+  }
+  .amt:hover { border-color: var(--ink-mute); }
+  .amt.selected { border-color: var(--crimson); box-shadow: inset 0 0 0 1px var(--crimson); color: var(--crimson); font-weight: 500; }
+  .amt-custom { display: flex; margin-top: 8px; }
+  .amt-custom .cur {
+    font-size: 15px; color: var(--ink-mute); display: flex; align-items: center;
+    background: var(--canvas-soft); border: 1px solid var(--hairline-input); border-right: none;
+    border-radius: 6px 0 0 6px; padding: 10px 4px 10px 12px;
+  }
+  .amt-custom input {
+    flex: 1; min-width: 0; font-family: var(--font); font-size: 15px; font-weight: 400; color: var(--ink);
+    background: var(--canvas); border: 1px solid var(--hairline-input); border-left: none;
+    border-radius: 0 6px 6px 0; padding: 10px 12px 10px 4px; outline: none; transition: border-color 0.15s ease;
+  }
+  .amt-custom input::placeholder { color: #9AA6BD; }
+  .amt-custom:focus-within .cur, .amt-custom input:focus { border-color: var(--crimson); }
+
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 13px; font-weight: 400; color: var(--ink-secondary); margin-bottom: 5px; }
+  .field input {
+    width: 100%; font-family: var(--font); font-size: 15px; font-weight: 300; color: var(--ink);
+    background: var(--canvas); border: 1px solid var(--hairline-input); border-radius: 6px;
+    padding: 9px 12px; outline: none; transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .field input::placeholder { color: #9AA6BD; }
+  .field input:focus { border-color: var(--crimson); box-shadow: 0 0 0 3px rgba(139,26,20,0.08); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .btn-complete { width: 100%; margin-top: 24px; padding: 13px 18px; font-size: 16px; }
+  .f-fine { margin-top: 14px; font-size: 12px; font-weight: 300; color: var(--ink-mute); line-height: 1.55; text-align: center; }
+  .f-fine strong { color: var(--ink-secondary); font-weight: 500; }
+
+  /* ── Summary: the featured dark tier ── */
+  .sum-card { background: var(--ink); color: #fff; border: none; padding: 28px; box-shadow: var(--shadow-2); position: sticky; top: 20px; }
+  .sum-card .s-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .sum-row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.12);
+    font-size: 14px;
+  }
+  .sum-row .k { font-weight: 300; color: rgba(255,255,255,0.65); }
+  .sum-row .v { font-weight: 400; color: #fff; }
+  .sum-total { display: flex; align-items: baseline; justify-content: space-between; padding: 18px 0 6px; }
+  .sum-total .k { font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.75); }
+  .sum-total .v { font-size: 34px; font-weight: 300; letter-spacing: -0.9px; color: #fff; }
+
+  .funds { margin-top: 16px; }
+  .funds .f-t { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .funds ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .funds li { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.8); display: flex; gap: 9px; align-items: baseline; line-height: 1.45; }
+  .funds li::before { content: '✓'; color: var(--gold); font-weight: 500; }
+
+  .trust { margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .trust .t-row { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.55; }
+  .trust .t-row strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+  .trust a { color: var(--gold); }
+  .trust a:hover { color: #DFC07A; }
+
+  /* ── Other ways (cool off-white band) ── */
+  .soft-band { background: var(--canvas-soft); border-top: 1px solid var(--hairline); position: relative; z-index: 5; }
+  .soft-band .container { padding-top: 48px; padding-bottom: 64px; }
+  .ow-title { font-size: 26px; font-weight: 300; letter-spacing: -0.26px; color: var(--ink); margin-bottom: 20px; }
+  .ow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .ow-card { background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-1); }
+  .ow-card .oc-t { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+  .ow-card p { font-size: 13.5px; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; }
+  .ow-card p strong { font-weight: 500; color: var(--ink); }
+  .ow-card img.qr { width: 88px; height: 88px; border: 1px solid var(--hairline); border-radius: 6px; padding: 5px; margin-bottom: 12px; display: block; background: #fff; }
+
+  /* ── Footer ── */
+  footer { background: var(--canvas); border-top: 1px solid var(--hairline); position: relative; z-index: 5; }
+  footer .container { padding-top: 28px; padding-bottom: 32px; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer .legal { font-size: 11px; font-weight: 300; color: var(--ink-mute); line-height: 1.65; max-width: 640px; }
+  footer .copy { font-size: 12px; font-weight: 400; color: var(--ink-mute); white-space: nowrap; }
+
+  @media (max-width: 900px) {
+    .checkout { grid-template-columns: 1fr; }
+    .sum-card { position: static; }
+    .ow-grid { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .head { padding: 28px 0 26px; }
+    .form-card { padding: 24px 20px; }
+    .nav { gap: 12px; }
+    .nav-brand { gap: 9px; }
+    .nav-brand img { height: 34px; }
+    .nav-brand .t { font-size: 13px; }
+    .nav-brand .s { font-size: 11px; }
+    .nav-back { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="mesh" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div>
+</div>
+
+<div class="container">
+  <nav class="nav">
+    <a class="nav-brand" href="./">
+      <img src="assets/logo-lady-patriots.png" alt="Lady Patriots Tip-Off Club"/>
+      <div>
+        <div class="t">Lady Patriots Tip-Off Club</div>
+        <div class="s">A 501(c)(3) nonprofit</div>
+      </div>
+    </a>
+    <a class="nav-back" href="./">Back to site</a>
+  </nav>
+
+  <header class="head">
+    <div class="eyebrow">Secure giving · Registered 501(c)(3)</div>
+    <h1>Support the Lady Patriots.</h1>
+    <p>Your gift funds equipment, uniforms, meals, tournament fees, and travel for Berkmar High School Girls Basketball. Every gift, large or small, makes a difference.</p>
+  </header>
+
+  <main class="checkout">
+    <!-- gift form -->
+    <section class="card form-card" aria-label="Gift details">
+      <div class="f-label">Gift frequency</div>
+      <div class="freq" role="group" aria-label="Gift frequency">
+        <button class="on" data-freq="one-time">One-time</button>
+        <button data-freq="monthly">Monthly</button>
+      </div>
+
+      <div class="f-label">Amount</div>
+      <div class="amounts tnum" role="group" aria-label="Gift amount">
+        <button class="amt tnum" data-amt="25">$25</button>
+        <button class="amt tnum" data-amt="50">$50</button>
+        <button class="amt tnum selected" data-amt="100">$100</button>
+        <button class="amt tnum" data-amt="250">$250</button>
+        <button class="amt tnum" data-amt="500">$500</button>
+        <button class="amt tnum" data-amt="1000">$1,000</button>
+      </div>
+      <div class="amt-custom">
+        <span class="cur">$</span>
+        <input class="tnum" id="customAmt" type="number" min="1" step="1" inputmode="numeric" placeholder="Other amount" aria-label="Custom gift amount"/>
+      </div>
+
+      <div class="f-label">Your information</div>
+      <div class="field-row">
+        <div class="field">
+          <label for="fName">First name</label>
+          <input id="fName" type="text" autocomplete="given-name" placeholder="First name"/>
+        </div>
+        <div class="field">
+          <label for="lName">Last name</label>
+          <input id="lName" type="text" autocomplete="family-name" placeholder="Last name"/>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" placeholder="you@example.com"/>
+      </div>
+
+      <button class="btn btn-primary btn-complete" id="completeBtn">Continue — give $100</button>
+      <p class="f-fine" id="finePrint">You'll complete your gift securely on <strong>PayPal</strong> — card, bank, or PayPal balance; no PayPal account required. Prefer paper? <strong>Checks payable to Lady Patriots Tip-Off Club.</strong></p>
+    </section>
+
+    <!-- summary: featured dark tier -->
+    <aside class="card sum-card" aria-label="Gift summary">
+      <div class="s-eyebrow">Your gift summary</div>
+      <div class="sum-row"><span class="k">Gift</span><span class="v" id="sumFreq">One-time</span></div>
+      <div class="sum-row"><span class="k">To</span><span class="v">Lady Patriots Tip-Off Club</span></div>
+      <div class="sum-row"><span class="k">Benefits</span><span class="v">Entire program</span></div>
+      <div class="sum-total"><span class="k">Total</span><span class="v tnum" id="sumTotal">$100</span></div>
+
+      <div class="funds">
+        <div class="f-t">Where your gift goes</div>
+        <ul>
+          <li>Uniforms &amp; equipment</li>
+          <li>Tournament fees &amp; travel</li>
+          <li>Training &amp; team meals</li>
+          <li>End-of-season recognition</li>
+        </ul>
+      </div>
+
+      <div class="trust">
+        <div class="t-row"><strong>Registered 501(c)(3).</strong> Gifts are tax-deductible to the extent allowed by law.</div>
+        <div class="t-row"><strong>Whole-program support.</strong> Funds benefit the entire program, not individual athletes.</div>
+        <div class="t-row">Questions? <a href="mailto:ladypatriotstipoffclub@gmail.com">ladypatriotstipoffclub@gmail.com</a></div>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<section class="soft-band" aria-label="Other ways to give">
+  <div class="container">
+    <h2 class="ow-title">Other ways to give</h2>
+    <div class="ow-grid">
+      <div class="ow-card">
+        <img class="qr" src="assets/qr-give.png" alt="QR code — scan to give at ladypatriotstipoffclub.org"/>
+        <div class="oc-t">Scan to give</div>
+        <p>Point your phone's camera at the code, or visit <strong>ladypatriotstipoffclub.org</strong>.</p>
+      </div>
+      <div class="ow-card">
+        <div class="oc-t">Give by check</div>
+        <p>Make checks payable to <strong>Lady Patriots Tip-Off Club</strong>. Email <a href="mailto:ladypatriotstipoffclub@gmail.com">ladypatriotstipoffclub@gmail.com</a> for mailing details.</p>
+      </div>
+      <div class="ow-card">
+        <div class="oc-t">Donate in-kind</div>
+        <p>Team meals, snacks &amp; water, printing, transportation, equipment, gift cards, banners, and professional services. Recognition equal to value at the matching <a href="./#sponsor">sponsorship level</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p class="legal">The Lady Patriots Tip-Off Club is an independent Georgia nonprofit supporting Berkmar Girls Basketball as a whole; we are not affiliated with Gwinnett County Public Schools. The club is a registered 501(c)(3) organization — contributions are tax-deductible to the extent allowed by law; please consult your tax advisor. Funds benefit the entire program, not individual athletes.</p>
+    <div class="copy">© 2026 Lady Patriots Tip-Off Club</div>
+  </div>
+</footer>
+
+<script>
+  /* ═══════════════════════════════════════════════════════════════
+     DONATION CONFIG — hybrid PayPal flow (verified live):
+     · One-time gifts use the email-based donate link because it
+       PREFILLS the chosen amount on PayPal's page. Hosted buttons
+       ignore the amount parameter (config is stored at PayPal).
+     · Monthly gifts use the club's hosted Donate button
+       (5M4Z9CUNAMWKQ) because only it offers the Monthly/Yearly
+       tabs, Venmo, and the fee-cover option; the donor enters the
+       amount there.
+     Both show the club's crest and name. thank-you.html /
+     cancelled.html return URLs are appended at click time from the
+     live origin. Empty both URLs to fall back to a pledge email.
+     ═══════════════════════════════════════════════════════════════ */
+  var DONATE_URL = 'https://www.paypal.com/donate/?business=ladypatriotstipoffclub%40gmail.com&amount={AMOUNT}&currency_code=USD&item_name=Lady+Patriots+Tip-Off+Club+Donation';
+  var DONATE_URL_MONTHLY = 'https://www.paypal.com/donate/?hosted_button_id=5M4Z9CUNAMWKQ&currency_code=USD';
+  var CONTACT_EMAIL = 'ladypatriotstipoffclub@gmail.com';
+
+  (function () {
+    var amount = 100;
+    var freq = 'one-time';
+    var btns = Array.prototype.slice.call(document.querySelectorAll('.amt'));
+    var freqBtns = Array.prototype.slice.call(document.querySelectorAll('.freq button'));
+    var custom = document.getElementById('customAmt');
+    var complete = document.getElementById('completeBtn');
+    var sumTotal = document.getElementById('sumTotal');
+    var sumFreq = document.getElementById('sumFreq');
+
+    function fmt(n) { return '$' + Number(n).toLocaleString('en-US'); }
+    var fine = document.getElementById('finePrint');
+    var FINE_ONETIME = 'You’ll complete your gift securely on <strong>PayPal</strong> — card, bank, or PayPal balance; no PayPal account required. Prefer paper? <strong>Checks payable to Lady Patriots Tip-Off Club.</strong>';
+    var FINE_MONTHLY = 'You’ll finish on <strong>PayPal</strong> — select <strong>Monthly</strong> and confirm your amount there. Card, bank, Venmo, or PayPal balance; no PayPal account required.';
+    function sync(fromCustom) {
+      btns.forEach(function (b) { b.classList.toggle('selected', !fromCustom && Number(b.dataset.amt) === amount); });
+      if (!fromCustom) custom.value = '';
+      var suffix = freq === 'monthly' ? '/mo' : '';
+      sumTotal.textContent = fmt(amount) + suffix;
+      sumFreq.textContent = freq === 'monthly' ? 'Monthly' : 'One-time';
+      complete.textContent = 'Continue — give ' + fmt(amount) + suffix;
+      if (fine) fine.innerHTML = freq === 'monthly' ? FINE_MONTHLY : FINE_ONETIME;
+    }
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () { amount = Number(b.dataset.amt); sync(false); });
+    });
+    custom.addEventListener('input', function () {
+      var v = parseInt(custom.value, 10);
+      if (v > 0) { amount = v; sync(true); }
+    });
+    freqBtns.forEach(function (f) {
+      f.addEventListener('click', function () {
+        freq = f.dataset.freq;
+        freqBtns.forEach(function (x) { x.classList.toggle('on', x === f); });
+        sync(custom.value !== '');
+      });
+    });
+
+    // Preselect from ?amount=N&freq=monthly (links from the home page).
+    var params = new URLSearchParams(location.search);
+    var qa = parseInt(params.get('amount'), 10);
+    if (qa > 0) {
+      amount = qa;
+      var isPreset = btns.some(function (b) { return Number(b.dataset.amt) === qa; });
+      if (!isPreset) custom.value = qa;
+      if (params.get('freq') === 'monthly') {
+        freq = 'monthly';
+        freqBtns.forEach(function (x) { x.classList.toggle('on', x.dataset.freq === 'monthly'); });
+      }
+      sync(!isPreset);
+    } else {
+      sync(false);
+    }
+
+    complete.addEventListener('click', function () {
+      var target = freq === 'monthly' ? DONATE_URL_MONTHLY : DONATE_URL;
+      if (target) {
+        var url = target.replace('{AMOUNT}', amount).replace('{FREQ}', freq);
+        // Send donors back to our thank-you / cancelled pages. Built from
+        // the live origin so it works on any host; skipped for file://
+        // previews since PayPal only accepts web URLs.
+        if (/^https?:$/.test(location.protocol)) {
+          var base = location.origin + location.pathname.replace(/[^\/]*$/, '');
+          url += '&return=' + encodeURIComponent(base + 'thank-you') +
+                 '&cancel_return=' + encodeURIComponent(base + 'cancelled');
+        }
+        window.open(url, '_blank', 'noopener');
+        return;
+      }
+      var name = [document.getElementById('fName').value, document.getElementById('lName').value].join(' ').trim();
+      var email = document.getElementById('email').value.trim();
+      var suffix = freq === 'monthly' ? ' per month' : '';
+      var subject = 'Donation Pledge — ' + fmt(amount) + suffix;
+      var body =
+        'Hi Lady Patriots Tip-Off Club,\r\n\r\n' +
+        'I would like to make a ' + (freq === 'monthly' ? 'monthly' : 'one-time') + ' gift of ' + fmt(amount) + suffix +
+        ' to support Berkmar Girls Basketball. Please send me instructions on how to complete my donation.\r\n\r\n' +
+        'Name: ' + (name || '') + '\r\n' +
+        'Email: ' + (email || '') + '\r\n';
+      window.location.href = 'mailto:' + CONTACT_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    });
+  })();
+</script>
+</body>
+</html>

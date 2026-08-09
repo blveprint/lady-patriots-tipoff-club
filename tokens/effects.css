@@ -1,0 +1,37 @@
+/* ============================================================
+   EFFECTS — radius, shadows, borders, motion
+   Lady Patriots Tip-Off Club. Dark-first, gold-hairline system.
+   ============================================================ */
+
+:root {
+  /* ── Corner radius ── */
+  --radius-sm:   6px;
+  --radius:      12px;
+  --radius-lg:   16px;
+  --radius-pill: 999px;
+
+  /* ── Shadows (deep, on near-black surfaces) ── */
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md:   0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg:   0 16px 40px rgba(0, 0, 0, 0.5);
+
+  /* ── Signature glows (gold + crimson ambient) ── */
+  --glow-gold:    0 0 60px rgba(196, 164, 78, 0.08);
+  --glow-crimson: 0 0 60px rgba(139, 26, 20, 0.12);
+  --ring-gold:    0 0 0 8px rgba(196, 164, 78, 0.04);
+
+  /* ── Border widths ── */
+  --border-hairline: 1px;
+  --border-accent:   3px;   /* do/don't top-accent, tab underline */
+
+  /* ── Motion ── */
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast:    0.15s; /* @kind other */
+  --dur:         0.2s; /* @kind other */
+  --dur-slow:    0.3s; /* @kind other */
+
+  /* ── Signature top rule (gold→crimson→gold gradient) ── */
+  --rule-gradient: linear-gradient(90deg, transparent, var(--gold), var(--crimson), var(--gold), transparent);
+  /* ── Championship laurel/border conic (logo ring) ── */
+  --conic-crest: conic-gradient(from 0deg, var(--gold-dark), var(--crimson), var(--gold-dark), var(--navy-mid), var(--gold-dark));
+}

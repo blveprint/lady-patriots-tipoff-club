@@ -1,0 +1,10 @@
+/* ── Webfonts ──
+   Lady Patriots Tip-Off Club uses four Google-hosted families.
+   Bebas Neue  → athletic display / headlines
+   Barlow Condensed → condensed headings, stats, UI labels
+   Barlow      → body copy
+   JetBrains Mono → codes, tokens, technical/stat callouts
+   Imported from Google Fonts (their css2 endpoint emits the @font-face
+   rules + gstatic src urls the compiler ships to consumers). */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');

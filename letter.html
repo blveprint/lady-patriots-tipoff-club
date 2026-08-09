@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>A Letter From Coach Hairston — Lady Patriots Tip-Off Club</title>
+<meta name="description" content="A letter from Coach Reggie Hairston, Head Girls Basketball Coach at Berkmar High School, on the Lady Patriots program and how you can help."/>
+<link rel="icon" type="image/png" href="assets/logo-lady-patriots.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #141C41;
+    --crimson: #8B1A14;
+    --gold: #C4A44E;
+    --canvas: #FFFFFF;
+    --cloud: #F5F5F7;
+    --mute: #6E7385;
+    --stone: #9A9EAE;
+    --hairline: #D8DAE2;
+    --hairline-soft: #E9EAEF;
+    --font-campaign: 'Futura Std Extra Bold Condensed', 'Futura XBlk Cn BT', 'Futura-CondensedExtraBold',
+                     'Futura Extra Bold Condensed', 'Futura Condensed ExtraBold', 'Anton', 'Arial Narrow', sans-serif;
+    --font-ui: 'Hanken Grotesk', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--canvas); color: var(--ink); font-family: var(--font-ui); font-weight: 400; }
+  ::selection { background: rgba(139,26,20,0.18); }
+  img { display: block; max-width: 100%; }
+  a { color: var(--ink); text-decoration: none; }
+
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
+  .pill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 16px; font-weight: 500; line-height: 1;
+    height: 48px; padding: 0 32px; border-radius: 30px; border: none; cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+  }
+  .pill:active { transform: scale(0.97); opacity: 0.8; }
+  .pill-ink { background: var(--ink); color: #fff; }
+  .pill-ink:hover { opacity: 0.85; }
+  .pill-cloud { background: var(--cloud); color: var(--ink); }
+  .pill-cloud:hover { background: var(--hairline-soft); }
+  .pill-sm { height: 40px; padding: 0 24px; font-size: 14px; }
+
+  /* utility + nav (same chrome as home) */
+  .utility { background: var(--cloud); }
+  .utility .wrap { height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .utility span, .utility a { font-size: 12px; font-weight: 500; color: var(--ink); }
+  .utility .u-left { color: var(--mute); }
+  .nav { background: var(--canvas); position: sticky; top: 0; z-index: 100; box-shadow: inset 0 -1px 0 var(--hairline-soft); }
+  .nav .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { height: 40px; width: auto; }
+  .nav-logo .nl-name { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.15; }
+  .nav-logo .nl-sub { font-size: 11px; font-weight: 500; color: var(--mute); }
+
+  /* header */
+  .head { border-bottom: 1px solid var(--hairline-soft); }
+  .head .wrap { padding: 56px 48px 44px; }
+  .head .kicker { font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--crimson); margin-bottom: 14px; }
+  .head h1 {
+    font-family: var(--font-campaign); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(56px, 8vw, 110px); line-height: 0.9; letter-spacing: 1px; color: var(--ink);
+  }
+  .head .sub { margin-top: 14px; font-size: 15px; font-weight: 500; color: var(--mute); }
+
+  /* letter */
+  .letter { max-width: 760px; margin: 0 auto; padding: 56px 24px 40px; }
+  .letter .salutation { font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 24px; }
+  .letter p { font-size: 16.5px; font-weight: 400; color: #3D4258; line-height: 1.75; margin-bottom: 18px; text-wrap: pretty; }
+  .letter p strong { color: var(--ink); font-weight: 600; }
+  .letter .kicker {
+    font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--crimson);
+    margin: 34px 0 12px; padding-top: 24px; border-top: 1px solid var(--hairline-soft);
+  }
+  .signoff { margin-top: 36px; display: flex; align-items: center; gap: 18px; }
+  .signoff img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; }
+  .signoff .s-name { font-size: 17px; font-weight: 700; color: var(--ink); }
+  .signoff .s-role { font-size: 13.5px; font-weight: 400; color: var(--mute); line-height: 1.5; }
+
+  /* give band */
+  .band { background: var(--cloud); }
+  .band .wrap { padding: 64px 48px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .band .b-title {
+    font-family: var(--font-campaign); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(48px, 7vw, 96px); line-height: 0.9; letter-spacing: 1px; color: var(--ink);
+  }
+  .band .b-title .accent { color: var(--crimson); }
+  .band .b-sub { font-size: 16px; line-height: 1.6; color: var(--mute); max-width: 520px; }
+  .band .b-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .band .b-meta { font-size: 13px; color: var(--stone); }
+
+  footer { border-top: 1px solid var(--hairline); }
+  footer .wrap { padding: 24px 48px 32px; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer .legal { font-size: 11px; line-height: 1.7; color: var(--stone); max-width: 720px; }
+  footer .copy { font-size: 12px; color: var(--stone); white-space: nowrap; }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 0 24px; }
+    .utility .u-right { display: none; }
+    .head .wrap { padding: 40px 24px 32px; }
+    .letter { padding: 40px 24px 32px; }
+    .band .wrap { padding: 48px 24px; }
+    .band .b-ctas .pill { flex: 1 1 auto; }
+    footer .wrap { padding: 20px 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <span class="u-left">Berkmar High School Girls Basketball · Lilburn, GA</span>
+    <div class="u-right"><a href="donate"><strong>Donate</strong></a></div>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="nav-logo" href="./">
+      <img src="assets/logo-lady-patriots.png" alt="Lady Patriots Tip-Off Club"/>
+      <div>
+        <div class="nl-name">Lady Patriots Tip-Off Club</div>
+        <div class="nl-sub">A 501(c)(3) nonprofit</div>
+      </div>
+    </a>
+    <a class="pill pill-ink pill-sm" href="donate">Donate</a>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <div class="kicker">Friends &amp; Family</div>
+    <h1>A Letter From<br/>Coach Hairston</h1>
+    <div class="sub">Berkmar High School Girls Basketball · Lilburn, Georgia</div>
+  </div>
+</header>
+
+<main class="letter">
+  <div class="salutation">Greetings Family &amp; Friends,</div>
+  <p>I hope and pray this message finds you all doing well.</p>
+  <p>As many of you know, I recently accepted the position of <strong>Head Girls Basketball Coach at Berkmar High School</strong> in Lilburn, Georgia. I am incredibly honored, humbled, and excited about this opportunity and the journey ahead.</p>
+  <p>Before I go any further, I'd like to provide a little background and context.</p>
+  <p>For the past 10 years, I have served as an assistant high school boys basketball coach. During that time, I also had the opportunity to serve as the head coach of both the 9th-grade and JV boys teams. Much of my role focused on ensuring the day-to-day operations of the program ran smoothly — everything from transportation, uniforms, meals, officials, and travel arrangements to assisting with on-court coaching responsibilities.</p>
+  <p>What's interesting is that becoming a head coach was never something I actively pursued or even desired.</p>
+  <p>In April, it was announced that Berkmar's Head Girls Basketball Coach had accepted a position at another school. That's when things began to change. For weeks, I felt a persistent nudge in my spirit to pursue the position. At every turn, I dismissed the idea and tried to move on. Yet the feeling never went away.</p>
+  <p>Finally, I casually mentioned to our Athletic Director that I would be interested in applying if the position had not already been filled. To my surprise, he was excited to hear it. Within days, I was sitting in his office for an interview, and less than two weeks later, I was offered the position. And here we are today.</p>
+  <div class="kicker">The Program</div>
+  <p>Now that you know a little about my coaching journey, let me share some background on the Lady Patriots basketball program.</p>
+  <p>I will be the fourth coach in five years. Unfortunately, over the past four seasons, the team has won just one game each year. Last season ended with only six players remaining on the roster. The behind-the-scenes organization was virtually nonexistent, and there were no funds left within the program.</p>
+  <p>Additionally, Berkmar is a Title I school, with over 77% of students qualifying for free or reduced lunch. Last year, player dues were set at $200, yet only one player was able to pay. Contrary to what many people believe, athletic programs do not automatically receive funding from the school. The school provides access to facilities, but most program expenses must be covered through fundraising and community support.</p>
+  <p>Simply put, the program was facing significant challenges.</p>
+  <div class="kicker">Why I Said Yes</div>
+  <p>First and foremost, I truly believe it was <strong>a calling</strong>. This was not an opportunity I sought out; rather, it was one that continued to be placed before me.</p>
+  <p>Second, it combines two things I deeply love: <strong>working with young people and the game of basketball</strong>.</p>
+  <p>Finally, I knew that with the support of family, friends, and the community, <strong>we could begin building something special</strong>. Together, we can help transform this program and create opportunities for these young ladies that extend far beyond basketball.</p>
+  <div class="kicker">Where We Are Now</div>
+  <p>We recently completed our summer program, with 14 student-athletes participating. During June, we held eight practices and competed in four games. We have already made several much-needed improvements to the locker room, and I'm excited about the progress we've made in a short period of time.</p>
+  <p>I am also happy to share that our Booster Club has officially been established, thanks to the leadership of our President and my incredibly supportive sister, Nikia. In addition, we are officially a registered 501(c)(3) organization.</p>
+  <div class="kicker">How You Can Help</div>
+  <p>To provide these young ladies with the experience they deserve, <strong>we need your help</strong>.</p>
+  <p>Running a successful basketball program requires resources, and I would sincerely appreciate any financial support you are able to provide. Contributions will help cover essential needs such as equipment, uniforms, meals, tournament fees, travel expenses, and other program costs.</p>
+  <p>These young ladies have often been overlooked, but I truly believe their time is coming. Even the small things we were able to provide this summer — a team t-shirt, a pizza party, and a few other gestures — were met with genuine gratitude and excitement. Seeing their smiles and appreciation only reinforced my commitment to giving them the best experience possible.</p>
+  <p>Thank you for taking the time to read this message and for considering supporting the Berkmar Lady Patriots Basketball Program. Your generosity, encouragement, and prayers will make a lasting impact on these young ladies both on and off the court.</p>
+  <p>We are excited about what lies ahead and look forward to a tremendous season.</p>
+  <div class="signoff">
+    <img src="assets/coach-hairston.png" alt="Coach Reggie Hairston"/>
+    <div>
+      <div style="font-size:14px;color:var(--mute);margin-bottom:4px;">With gratitude,</div>
+      <div class="s-name">Coach Reggie Hairston</div>
+      <div class="s-role">Head Girls Basketball Coach<br/>Berkmar High School Lady Patriots Basketball Program</div>
+    </div>
+  </div>
+</main>
+
+<section class="band" aria-label="Support the Lady Patriots">
+  <div class="wrap">
+    <h2 class="b-title">Support the<br/><span class="accent">Lady Patriots</span></h2>
+    <p class="b-sub">Every gift — large or small — goes directly to equipment, uniforms, meals, tournament fees, and travel for our student-athletes.</p>
+    <div class="b-ctas">
+      <a class="pill pill-ink" href="donate">Make a Gift</a>
+      <a class="pill pill-cloud" style="background:#fff;" href="./#sponsor">Become a Sponsor</a>
+    </div>
+    <span class="b-meta">Checks payable to Lady Patriots Tip-Off Club · <a href="mailto:ladypatriotstipoffclub@gmail.com" style="color:var(--crimson);">ladypatriotstipoffclub@gmail.com</a></span>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="legal">The Lady Patriots Tip-Off Club is an independent Georgia nonprofit supporting Berkmar Girls Basketball as a whole; we are not affiliated with Gwinnett County Public Schools. The club is a registered 501(c)(3) organization — contributions are tax-deductible to the extent allowed by law; please consult your tax advisor. Funds benefit the entire program, not individual athletes.</p>
+    <div class="copy">© 2026 Lady Patriots Tip-Off Club</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gift Not Completed — Lady Patriots Tip-Off Club</title>
+<meta name="description" content="Your donation wasn't completed. You can try again anytime, or give by check or in-kind."/>
+<meta name="robots" content="noindex"/>
+<link rel="icon" type="image/png" href="assets/logo-lady-patriots.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="site.css?v=6"/>
+<style>
+  .status-hero { border-bottom: 1px solid var(--hairline-soft); }
+  .status-hero .wrap { padding: 88px 48px 72px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; }
+  .status-hero img.crest { height: 96px; }
+  .status-hero h1 {
+    font-family: var(--font-campaign); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(56px, 8.5vw, 120px); line-height: 0.95; letter-spacing: 0.5px; color: var(--ink);
+  }
+  .status-hero .lede { font-size: 17px; color: var(--mute); line-height: 1.6; max-width: 540px; }
+  .status-hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  .alt-note { font-size: 13px; color: var(--stone); max-width: 500px; line-height: 1.6; }
+  .alt-note strong { color: var(--mute); font-weight: 600; }
+  @media (max-width: 760px) {
+    .status-hero .wrap { padding: 56px 24px 48px; }
+    .status-hero .ctas .pill { flex: 1 1 auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <span class="u-left">Berkmar High School Girls Basketball · Lilburn, GA</span>
+    <div class="u-right">
+      <a href="letter">Coach's Letter</a>
+      <a href="mailto:ladypatriotstipoffclub@gmail.com">Contact</a>
+      <a href="donate"><strong>Donate</strong></a>
+    </div>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="nav-logo" href="./">
+      <img src="assets/logo-lady-patriots.png" alt="Lady Patriots Tip-Off Club"/>
+      <div>
+        <div class="nl-name">Lady Patriots Tip-Off Club</div>
+        <div class="nl-sub">A 501(c)(3) nonprofit</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="support">Support</a>
+      <a href="sponsorship">Sponsorship</a>
+      <a href="schedule">Schedule</a>
+      <a href="coach">Coach</a>
+    </div>
+    <div class="nav-cta">
+      <a class="pill pill-ink pill-sm" href="donate">Donate</a>
+    </div>
+  </div>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<div class="drawer" id="drawer" aria-label="Menu">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  <a href="support">Support</a>
+  <a href="sponsorship">Sponsorship</a>
+  <a href="schedule">Schedule</a>
+  <a href="coach">Coach</a>
+  <a href="letter">Coach's Letter</a>
+  <a class="pill pill-ink" href="donate">Donate</a>
+</div>
+
+<header class="status-hero">
+  <div class="wrap">
+    <img class="crest fx" src="assets/logo-lady-patriots.png" alt="Lady Patriots crest"/>
+    <h1>
+      <span class="fx-mask"><span>No Pressure.</span></span>
+    </h1>
+    <p class="lede fx fx-d1">Your donation wasn't completed — nothing was charged. Whenever you're ready, the team will be here. Every gift, large or small, makes a difference.</p>
+    <div class="ctas fx fx-d2">
+      <a class="pill pill-ink" href="donate">Try Again</a>
+      <a class="pill pill-cloud" href="support">Other Ways to Give</a>
+    </div>
+    <p class="alt-note fx fx-d3">Prefer paper? <strong>Checks payable to Lady Patriots Tip-Off Club.</strong> You can also donate in-kind — team meals, printing, equipment, gift cards, and more. Questions? <a href="mailto:ladypatriotstipoffclub@gmail.com" style="text-decoration: underline;">ladypatriotstipoffclub@gmail.com</a></p>
+  </div>
+</header>
+
+<section class="campaign" aria-label="Their time is coming">
+  <img data-parallax="0.08" src="assets/player-court-wide.png" alt="A Lady Patriots player dribbling up the court" style="--pos-m: 20% center;"/>
+  <div class="c-copy">
+    <div class="wrap">
+      <h2 class="h-campaign c-title">
+        <span class="fx-mask"><span>Their Time</span></span>
+        <span class="fx-mask fx-d1"><span>Is Coming</span></span>
+      </h2>
+      <a class="pill pill-on-image fx fx-d2" href="donate">Support the Team</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-fine" style="border-top: none;">
+      <p class="legal">The Lady Patriots Tip-Off Club is an independent Georgia nonprofit supporting Berkmar Girls Basketball as a whole; we are not affiliated with Gwinnett County Public Schools. The club is a registered 501(c)(3) organization — contributions are tax-deductible to the extent allowed by law; please consult your tax advisor. Funds benefit the entire program, not individual athletes.</p>
+      <div class="row">
+        <span>© 2026 Lady Patriots Tip-Off Club</span>
+        <span>Proud · Driven · United</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js?v=3"></script>
+</body>
+</html>

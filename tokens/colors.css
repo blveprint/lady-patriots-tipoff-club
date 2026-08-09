@@ -1,0 +1,67 @@
+/* ============================================================
+   COLORS — Lady Patriots Tip-Off Club
+   Six intentional brand colors + a dark-first surface/text scale.
+   Base values first, semantic aliases second.
+   ============================================================ */
+
+:root {
+  /* ── Crimson (primary accent — jacket, ribbon, CTAs) ── */
+  --crimson:        #8B1A14;
+  --crimson-mid:    #A82020;
+  --crimson-light:  #C43030;
+
+  /* ── Navy (primary foundation — shield, dark fields) ── */
+  --navy:           #141C41;
+  --navy-mid:       #1E2A5A;
+  --navy-light:     #2F3F72;
+
+  /* ── Gold (premium accent — border, laurel, trophy) ── */
+  --gold:           #C4A44E;
+  --gold-light:     #DFC07A;
+  --gold-dark:      #9A7030;
+  --star-gold:      #F2C94C;   /* bright celebratory highlight */
+
+  /* ── Neutrals ── */
+  --silver:         #C8C8CE;   /* mascot metallics, secondary detail */
+  --white:          #F4F4F8;   /* championship white */
+  --cream:          #E8E4D4;   /* warm light background */
+
+  /* ── Dark surface scale (app / marketing dark mode) ── */
+  --bg:             #080C1A;
+  --bg-card:        #0F1426;
+  --bg-card-2:      #162038;
+
+  /* ── Text on dark ── */
+  --text:           #EEF0F8;
+  --text-muted:     #8090B0;
+  --text-dim:       #3D4D6A;
+
+  /* ── Borders / hairlines ── */
+  --border:         rgba(196, 164, 78, 0.12);   /* gold hairline */
+  --border-soft:    rgba(255, 255, 255, 0.06);
+
+  /* ── Semantic status ── */
+  --success:        #27AE60;
+  --danger:         var(--crimson-mid);
+  --warning:        var(--star-gold);
+
+  /* ── Semantic aliases (use these in components) ── */
+  --surface-page:        var(--bg);
+  --surface-card:        var(--bg-card);
+  --surface-raised:      var(--bg-card-2);
+  --surface-light:       var(--white);
+
+  --text-primary:        var(--text);
+  --text-secondary:      var(--text-muted);
+  --text-tertiary:       var(--text-dim);
+  --text-on-crimson:     var(--white);
+  --text-on-gold:        var(--navy);
+  --text-on-light:       var(--navy);
+
+  --accent-primary:      var(--crimson);
+  --accent-primary-hover:var(--crimson-mid);
+  --accent-premium:      var(--gold);
+  --accent-foundation:   var(--navy);
+
+  --focus-ring:          rgba(196, 164, 78, 0.55);
+}

@@ -1,0 +1,55 @@
+/* ============================================================
+   TYPOGRAPHY — Lady Patriots Tip-Off Club
+   Bebas Neue (display) · Barlow Condensed (headings/UI) ·
+   Barlow (body) · JetBrains Mono (technical).
+   ============================================================ */
+
+:root {
+  /* ── Families ── */
+  --font-display:  'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-heading:  'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body:     'Barlow', system-ui, -apple-system, sans-serif;
+  --font-mono:     'JetBrains Mono', ui-monospace, monospace;
+
+  /* ── Weights ── */
+  --fw-light:      300; /* @kind font */
+  --fw-regular:    400; /* @kind font */
+  --fw-medium:     500; /* @kind font */
+  --fw-semibold:   600; /* @kind font */
+  --fw-bold:       700; /* @kind font */
+  --fw-black:      900; /* @kind font */
+
+  /* ── Display scale (Bebas Neue — titles, banners, hero) ── */
+  --fs-display-xl: 96px;
+  --fs-display-lg: 68px;
+  --fs-display-md: 52px;
+  --fs-display-sm: 36px;
+
+  /* ── Heading scale (Barlow Condensed) ── */
+  --fs-h1:         32px;
+  --fs-h2:         26px;
+  --fs-h3:         20px;
+  --fs-h4:         16px;
+
+  /* ── Body scale (Barlow) ── */
+  --fs-body-lg:    17px;
+  --fs-body:       15px;
+  --fs-body-sm:    13px;
+  --fs-caption:    11px;
+
+  /* ── Mono ── */
+  --fs-mono:       11px;
+
+  /* ── Line heights ── */
+  --lh-display:    0.9; /* @kind font */
+  --lh-heading:    1.1; /* @kind font */
+  --lh-body:       1.6; /* @kind font */
+  --lh-relaxed:    1.75; /* @kind font */
+
+  /* ── Letter spacing (this brand leans on wide tracking) ── */
+  --ls-display:    3px;    /* @kind font */
+  --ls-display-wide: 8px;  /* @kind font */
+  --ls-label:      3px;    /* @kind font */
+  --ls-heading:    1px; /* @kind font */
+  --ls-body:       0; /* @kind font */
+}

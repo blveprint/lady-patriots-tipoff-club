@@ -1,0 +1,15 @@
+# Lady Patriots Tip-Off Club — clean URLs (Apache hosts).
+# /donate serves donate.html; direct .html requests 301 to the clean URL.
+# Netlify, Cloudflare Pages, and GitHub Pages do this automatically and
+# ignore this file.
+Options -MultiViews
+RewriteEngine On
+
+# Redirect /page.html -> /page (except direct file requests that exist only as .html assets)
+RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Serve page.html for extensionless requests
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
