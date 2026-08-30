@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "jayos": {
+      "source": {
+        "source": "github",
+        "repo": "blveprint/JAYOS"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "jayos-skills@jayos": true
+  }
+}
