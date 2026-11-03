@@ -152,7 +152,7 @@ section.block { padding: 48px 0; }
 .tile::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(20,28,65,0.45) 100%); pointer-events: none; }
 .tile.contain::after { background: none; }
 .tile .t-copy { position: absolute; left: 24px; right: 24px; bottom: 24px; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
-.tile .t-label { font-size: 20px; font-weight: 700; color: #fff; }
+.tile .t-label { font-size: 20px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(20,28,65,0.45), 0 2px 14px rgba(20,28,65,0.4); }
 .tile.contain .t-label { color: var(--ink); }
 
 /* ── Story cards (caption BELOW the photo) ── */
@@ -199,6 +199,16 @@ section.block { padding: 48px 0; }
 .game.home .gv { color: var(--crimson); }
 .game.away .gv { color: var(--stone); }
 .sched-note { margin-top: 14px; font-size: 12px; color: var(--stone); }
+
+/* ── Roster (schedule page) ── */
+.sec-title { font-family: var(--font-campaign); font-weight: 400; text-transform: uppercase; font-size: clamp(40px, 5vw, 64px); line-height: 0.95; color: var(--ink); }
+#roster { scroll-margin-top: 84px; }
+.rosters { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 48px; }
+.r-team { font-family: var(--font-campaign); font-weight: 400; text-transform: uppercase; font-size: 32px; line-height: 1; letter-spacing: 0.5px; color: var(--ink); margin-bottom: 14px; }
+.r-list { list-style: none; border-top: 1px solid var(--hairline); }
+.r-list li { display: grid; grid-template-columns: 64px 1fr; align-items: center; padding: 13px 4px; border-bottom: 1px solid var(--hairline-soft); }
+.r-no { font-family: var(--font-campaign); font-size: 28px; line-height: 1; color: var(--crimson); font-variant-numeric: tabular-nums; }
+.r-name { font-size: 15px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink); }
 
 /* ── Give cards (support page) ── */
 .give-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -296,7 +306,7 @@ footer { border-top: 1px solid var(--hairline); background: var(--canvas); }
   .promo .wrap { min-height: 0; padding-top: 9px; padding-bottom: 9px; gap: 4px 12px; }
   .promo .p-msg { font-size: 11px; letter-spacing: 1px; }
   .promo a { font-size: 12px; }
-  .hero img.hero-photo { height: min(78vh, 640px); object-position: 96% 22%; }
+  .hero img.hero-photo { height: min(78vh, 640px); object-position: 92% 22%; }
   .hero-copy .wrap { padding-bottom: 96px; }
   .hero-title { font-size: clamp(56px, 16vw, 90px); }
   /* wide campaign photos re-crop for portrait screens: --pos-m wins on mobile */
@@ -306,6 +316,7 @@ footer { border-top: 1px solid var(--hairline); background: var(--canvas); }
   .tile img { aspect-ratio: 4 / 3; }
   .game { grid-template-columns: 84px 1fr 64px; }
   .game .gt { display: none; }
+  .rosters { grid-template-columns: 1fr; }
   .lockup .wrap { padding: 56px 24px; }
   .values { grid-template-columns: repeat(2, 1fr); }
   .foot-cols { grid-template-columns: 1fr; gap: 28px; }
