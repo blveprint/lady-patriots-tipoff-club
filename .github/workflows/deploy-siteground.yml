@@ -1,0 +1,91 @@
+# Deploys the site to SiteGround over SSH (rsync) whenever main changes.
+# One-time setup — the SiteGround secrets this needs — is in DEPLOY.md.
+name: Deploy to SiteGround
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: list what would change on the server without copying anything"
+        type: boolean
+        default: true
+
+# Never run two deploys at once; a newer push waits for the one in flight.
+concurrency:
+  group: deploy-siteground
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+      SG_PORT: ${{ secrets.SITEGROUND_PORT }}
+      SG_USER: ${{ secrets.SITEGROUND_USER }}
+      SG_KEY: ${{ secrets.SITEGROUND_SSH_KEY }}
+      SG_PASSPHRASE: ${{ secrets.SITEGROUND_SSH_PASSPHRASE }}
+      SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+      SG_KNOWN_HOSTS: ${{ secrets.SITEGROUND_KNOWN_HOSTS }}
+      DRY_RUN: ${{ inputs.dry_run == true }}
+    steps:
+      - name: Check deploy settings
+        id: cfg
+        run: |
+          missing=""
+          [ -n "$SG_HOST" ] || missing="$missing SITEGROUND_HOST"
+          [ -n "$SG_USER" ] || missing="$missing SITEGROUND_USER"
+          [ -n "$SG_KEY" ]  || missing="$missing SITEGROUND_SSH_KEY"
+          [ -n "$SG_PATH" ] || missing="$missing SITEGROUND_PATH"
+          if [ -n "$missing" ]; then
+            echo "::notice title=Deploy skipped::SiteGround secrets not set yet (missing:$missing). See DEPLOY.md."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check out site
+        if: steps.cfg.outputs.ready == 'true'
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SG_KEY" | tr -d '\r' > ~/.ssh/siteground && chmod 600 ~/.ssh/siteground
+          eval "$(ssh-agent -s)"
+          echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$GITHUB_ENV"
+          echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> "$GITHUB_ENV"
+          if [ -n "$SG_PASSPHRASE" ]; then
+            # SiteGround-generated keys carry a passphrase; feed it to ssh-add non-interactively.
+            printf '#!/bin/sh\nprintf "%%s\\n" "$SG_PASSPHRASE"\n' > "$RUNNER_TEMP/askpass" && chmod 700 "$RUNNER_TEMP/askpass"
+            # A wrong passphrase makes ssh-add re-prompt forever, so cap it.
+            SSH_ASKPASS="$RUNNER_TEMP/askpass" SSH_ASKPASS_REQUIRE=force timeout 30 ssh-add ~/.ssh/siteground < /dev/null \
+              || { echo "::error::Could not unlock the SSH key. Check SITEGROUND_SSH_PASSPHRASE."; exit 1; }
+          else
+            ssh-add ~/.ssh/siteground
+          fi
+          rm -f ~/.ssh/siteground "$RUNNER_TEMP/askpass"
+          if [ -n "$SG_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$SG_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            echo "::warning::SITEGROUND_KNOWN_HOSTS not set; trusting the server's host key on first contact."
+            ssh-keyscan -p "${SG_PORT:-18765}" "$SG_HOST" > ~/.ssh/known_hosts
+          fi
+
+      - name: Deploy files
+        if: steps.cfg.outputs.ready == 'true'
+        run: |
+          flags="-rltvz --itemize-changes --chmod=D755,F644"
+          [ "$DRY_RUN" = "true" ] && flags="$flags --dry-run" && echo "::notice title=Dry run::Nothing will be copied."
+          # No --delete: files on the server that aren't in this repo are left alone.
+          rsync $flags \
+            --exclude '.git/' --exclude '.github/' --exclude '.claude/' \
+            --exclude 'DEPLOY.md' --exclude '.nojekyll' \
+            -e "ssh -p ${SG_PORT:-18765} -o BatchMode=yes" \
+            ./ "$SG_USER@$SG_HOST:${SG_PATH%/}/"
