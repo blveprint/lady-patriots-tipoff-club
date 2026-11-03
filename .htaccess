@@ -1,15 +1,56 @@
-# Lady Patriots Tip-Off Club — clean URLs (Apache hosts).
+# ============================================================
+# Lady Patriots Tip-Off Club — Apache config (SiteGround).
+# Clean URLs + compression + caching. Lives in the domain's
+# public_html next to index.html.
+# ============================================================
+
+# ── Clean URLs ──
 # /donate serves donate.html; direct .html requests 301 to the clean URL.
-# Netlify, Cloudflare Pages, and GitHub Pages do this automatically and
-# ignore this file.
 Options -MultiViews
-RewriteEngine On
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-# Redirect /page.html -> /page (except direct file requests that exist only as .html assets)
-RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html[\s?] [NC]
-RewriteRule ^ /%1 [R=301,L]
+  # Force HTTPS and the canonical bare domain (www -> apex)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://ladypatriotstipoffclub.org%{REQUEST_URI} [L,R=301]
 
-# Serve page.html for extensionless requests
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L]
+  # Redirect /page.html -> /page
+  RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # Serve page.html for extensionless requests
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+# ── Compression ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/xml
+</IfModule>
+
+# ── Correct MIME types ──
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/webp .webp
+</IfModule>
+
+# ── Caching ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png  "access plus 1 month"
+  ExpiresByType text/css   "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
+  ExpiresByType text/html  "access plus 0 seconds"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
