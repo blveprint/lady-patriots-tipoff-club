@@ -296,7 +296,7 @@ footer { border-top: 1px solid var(--hairline); background: var(--canvas); }
   .promo .wrap { min-height: 0; padding-top: 9px; padding-bottom: 9px; gap: 4px 12px; }
   .promo .p-msg { font-size: 11px; letter-spacing: 1px; }
   .promo a { font-size: 12px; }
-  .hero img.hero-photo { height: min(78vh, 640px); object-position: 96% 22%; }
+  .hero img.hero-photo { height: min(78vh, 640px); object-position: 92% 22%; }
   .hero-copy .wrap { padding-bottom: 96px; }
   .hero-title { font-size: clamp(56px, 16vw, 90px); }
   /* wide campaign photos re-crop for portrait screens: --pos-m wins on mobile */
