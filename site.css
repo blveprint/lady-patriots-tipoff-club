@@ -175,6 +175,8 @@ section.block { padding: 48px 0; }
 .level li { font-size: 14px; font-weight: 400; color: var(--mute); line-height: 1.5; padding: 9px 0; border-bottom: 1px solid var(--hairline-soft); }
 .level li:first-child { border-top: 1px solid var(--hairline-soft); }
 .level .pill { align-self: stretch; }
+.lv-note { font-size: 14px; line-height: 1.6; color: var(--mute); margin-top: 20px; max-width: 760px; }
+.lv-note a { text-decoration: underline; }
 
 /* ── Schedule ── */
 .chips { display: flex; gap: 8px; flex-wrap: wrap; }
